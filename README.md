@@ -1,2 +1,1 @@
-# Symmetry-Extensions
 TODO
