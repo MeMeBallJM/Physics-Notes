@@ -7,6 +7,36 @@
 
 \begin{document}
 
-Foo
+\begin{definition}{Fields}{Field}
+    A \emph{field} $\left(\F, +, \cdot\right)$ is a nonempty set $\F$, along with two binary operations,
+    addition $+: \F \times \F \rightarrow \F$
+    and multiplication $\cdot: \F \times \F \rightarrow \F$,
+    satisfying the following,
+
+    \begin{enumerate}[label=(\roman*)]
+        \item  For all $x, y, z \in \F, (x + y) + z = x + (y + z) \tand (x \cdot y) \cdot z = x \cdot (y \cdot z)$.
+        \item  For all $x, y \in \F$, $x + y = y + x \tand x \cdot y = y \cdot x$.
+        \item  There exists elements $0, 1 \in \F$ such that for all $x \in \F, x + 0 = x \tand x \cdot 1 = x$.
+        \item  For all $x \in \F$, there exists an element $-x \in \F$ such that $x + (-x) = 0$, and if $x \neq 0$, there exists an element $x^{-1}$ such that $x \cdot x^{-1} = 1$.
+        \item  For all $x, y, z \in \F$, $x \cdot (y + z) = (x \cdot y) + (x \cdot z)$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}{Vecotor Spaces}{Vector Spaces}
+    A \emph{Vector Space} $\left(V, +, \cdot\right)$ over a field $\left(\F, +, \cdot\right)$ is a set $V$ along with two binary operations,
+    vector addition $+: V \times V \rightarrow V$
+    and s-multiplication $\cdot: \F \times V \rightarrow V$,
+    satisfying the following,
+
+    \begin{enumerate}[label=(\roman*)]
+        \item  For all vectors $v, w, u \in V$, $v + (w + u) = (v + w) + u$.
+        \item  For all vectors $v, w \in V$, $v + w = w + v$.
+        \item  There exists a vector $\vec{0} \in V$ such that $v + \vec{0} = v$ for all $v \in V$.
+        \item  For every vector $v \in V$ there exists an element $-v$ such that $v + (-v) = \vec{0}$.
+        \item  For all scalars $a, b \in \F$ and vector $v \in V$, $a \cdot_V (b \cdot_V v) = (a \cdot_F b) \cdot_V v$.
+        \item  For every scalar $a \in \F$ and vectors $v, w \in V$, $a \cdot (v + w) = a \cdot v + a \cdot w$.
+        \item  For all scalars $a, b \in \F$ and vector $v\in V$, $(a + b) \cdot v = a \cdot v + b \cdot v$.
+    \end{enumerate}
+\end{definition}
 
 \end{document}
