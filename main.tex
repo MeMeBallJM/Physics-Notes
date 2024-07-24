@@ -5,7 +5,26 @@
 
 \usepackage{enumitem}
 
+\newcommand{\tp}{\mathcal{O}}
+\newcommand{\pset}[1]{\mathcal{P}(#1)}
+\newcommand{\defeq}{\stackrel{\text{def}}{=}}
+
 \begin{document}
+
+\section{Topology}
+
+\begin{definition}{Topological Space}{}
+    A \emph{topology} $\tp \subseteq \pset{X}$ on a set $X$ forms a \emph{topological space} $(X, \tp)$ if it satisfies the following,
+
+    \begin{enumerate}[label=(\roman*)]
+        \item $\emptyset, X \in \tp$.
+        \item If $S \subseteq \tp$ then $\bigcup S \in \tp$.
+        \item If $S_1, S_2 \in \tp$ then $S_1 \cap S_2 \in \tp$.
+    \end{enumerate}
+\end{definition}
+
+
+\section{Hilbert Spaces}
 
 \begin{definition}{Fields}{Field}
     A \emph{field} $\left(\F, +, \cdot\right)$ is a nonempty set $\F$, along with two binary operations,
@@ -53,6 +72,13 @@
 \begin{definition}{Sequence}{Sequence}
     A \emph{Sequence} $a_n$ is map $a_n : \N \rightarrow X$ for some target $X$.
     A \emph{Finite Sequence} $a_n$ with a length $L \in \N$ is map $a_n : \{m \in \N \mid m \leq L\} \rightarrow X$ for some target $X$.
+\end{definition}
+
+\begin{definition}{Cauchy Sequence}{Cauchy Sequence}
+    Let $\left(V, +, \cdot, \|\cdot\|\right)$ be normed space.
+    A Sequence $a_n: \N \rightarrow V$ is \emph{Cauchy} if:
+    $$\forall \varepsilon > 0 : \exists N : \forall m, n \geq N \implies \|x_n - x_m\| < \varepsilon.$$
+    Meaning that elements in the sequence become closer and closer.
 \end{definition}
 
 
