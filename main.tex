@@ -24,6 +24,20 @@
     \end{enumerate}
 \end{definition}
 
+\begin{terminology}{Open Set}{Open Set}
+    Let $(M, \tp)$ be topological space, then a subset $U \subseteq M$ is called open if $U \in \tp$.
+\end{terminology}
+
+\begin{terminology}{Open Neighbourhood}{Open Neighbourhood}
+    Let $(M, \tp)$ be topological space, then a subset $U \subseteq M$ is an open neighbourhood around $p \in M$ if it contains $p$ and is open.
+    $$p \in U \in \tp$$
+\end{terminology}
+
+\begin{definition}{Continuous map}{Continuous map}
+    Let $(M, \tp_M)$ and $(N, \tp_N)$ be topological spaces, then a map $f: M \to N$ is continuous at $p$ if:
+    $$\forall U \in \tp_N: f(p) \in U \implies f^{\text{pre}}(U) \in \tp_M$$
+\end{definition}
+
 \begin{definition}{Fields}{Field}
     A \emph{field} $\left(K, +, \cdot\right)$ is a nonempty set $K$, along with two binary operations,
     addition $+: K \times K \to K$

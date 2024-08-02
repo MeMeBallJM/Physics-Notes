@@ -147,6 +147,27 @@
   coltitle = notation_color_title,
 }{notation}
 
+% Terminology environment
+\definecolor{terminology_color_background}{HTML}{F9D8DE}
+\definecolor{terminology_color_frame}{HTML}{F2ACB8}
+\definecolor{terminology_color_title}{HTML}{FFFFFF}
+\newtcbtheorem[number within=section]{terminology}{Terminology}
+{
+  skin=enhanced,
+  boxrule = 0.75mm,
+  sharp corners,
+  % Title settings
+  attach boxed title to top left = {
+      yshift*=-\tcboxedtitleheight/2,
+      xshift = 10mm,
+    },
+  boxed title style = {colback=terminology_color_frame, sharp corners},
+  % Adjust colors
+  colback= terminology_color_background,
+  colframe= terminology_color_frame,
+  coltitle = terminology_color_title,
+}{terminology}
+
 % Example environment
 \definecolor{example_color_background}{HTML}{D4F7E9}
 \definecolor{example_color_frame}{HTML}{84E9BF}
