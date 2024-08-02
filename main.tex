@@ -9,42 +9,30 @@
 \newcommand{\pset}[1]{\mathcal{P}(#1)}
 \newcommand{\defeq}{\stackrel{\text{def}}{=}}
 
+\newcommand{\dom}{\operatorname{dom}}
+
+
 \begin{document}
 
-\section{Topology}
-
-\begin{definition}{Topological Space}{}
-    A \emph{topology} $\tp \subseteq \pset{X}$ on a set $X$ forms a \emph{topological space} $(X, \tp)$ if it satisfies the following,
-
-    \begin{enumerate}[label=(\roman*)]
-        \item $\emptyset, X \in \tp$.
-        \item If $S \subseteq \tp$ then $\bigcup S \in \tp$.
-        \item If $S_1, S_2 \in \tp$ then $S_1 \cap S_2 \in \tp$.
-    \end{enumerate}
-\end{definition}
-
-
-\section{Hilbert Spaces}
-
 \begin{definition}{Fields}{Field}
-    A \emph{field} $\left(\F, +, \cdot\right)$ is a nonempty set $\F$, along with two binary operations,
-    addition $+: \F \times \F \rightarrow \F$
-    and multiplication $\cdot: \F \times \F \rightarrow \F$,
+    A \emph{field} $\left(K, +, \cdot\right)$ is a nonempty set $K$, along with two binary operations,
+    addition $+: K \times K \to K$
+    and multiplication $\cdot: K \times K \to K$,
     satisfying the following,
 
     \begin{enumerate}[label=(\roman*)]
-        \item  For all $x, y, z \in \F, (x + y) + z = x + (y + z) \tand (x \cdot y) \cdot z = x \cdot (y \cdot z)$.
-        \item  For all $x, y \in \F$, $x + y = y + x \tand x \cdot y = y \cdot x$.
-        \item  There exists elements $0, 1 \in \F$ such that for all $x \in \F, x + 0 = x \tand x \cdot 1 = x$.
-        \item  For all $x \in \F$, there exists an element $-x \in \F$ such that $x + (-x) = 0$, and if $x \neq 0$, there exists an element $x^{-1}$ such that $x \cdot x^{-1} = 1$.
-        \item  For all $x, y, z \in \F$, $x \cdot (y + z) = (x \cdot y) + (x \cdot z)$.
+        \item  For all $x, y, z \in K, (x + y) + z = x + (y + z) \tand (x \cdot y) \cdot z = x \cdot (y \cdot z)$.
+        \item  For all $x, y \in K$, $x + y = y + x \tand x \cdot y = y \cdot x$.
+        \item  There exists elements $0, 1 \in K$ such that for all $x \in K, x + 0 = x \tand x \cdot 1 = x$.
+        \item  For all $x \in K$, there exists an element $-x \in K$ such that $x + (-x) = 0$, and if $x \neq 0$, there exists an element $x^{-1}$ such that $x \cdot x^{-1} = 1$.
+        \item  For all $x, y, z \in K$, $x \cdot (y + z) = (x \cdot y) + (x \cdot z)$.
     \end{enumerate}
 \end{definition}
 
 \begin{definition}{Vecotor Spaces}{Vector Spaces}
-    A \emph{Vector Space} $\left(V, +, \cdot\right)$ over a field $\left(\F, +, \cdot\right)$ is a set $V$ along with two binary operations,
-    vector addition $+: V \times V \rightarrow V$
-    and s-multiplication $\cdot: \F \times V \rightarrow V$,
+    A \emph{Vector Space} $\left(V, +, \cdot\right)$ over a field $\left(K, +, \cdot\right)$ is a set $V$ along with two binary operations,
+    vector addition $+: V \times V \to V$
+    and s-multiplication $\cdot: K \times V \to V$,
     satisfying the following,
 
     \begin{enumerate}[label=(\roman*)]
@@ -52,31 +40,69 @@
         \item  For all vectors $v, w \in V$, $v + w = w + v$.
         \item  There exists a vector $\vec{0} \in V$ such that $v + \vec{0} = v$ for all $v \in V$.
         \item  For every vector $v \in V$ there exists an element $-v$ such that $v + (-v) = \vec{0}$.
-        \item  For all scalars $a, b \in \F$ and vector $v \in V$, $a \cdot_V (b \cdot_V v) = (a \cdot_F b) \cdot_V v$.
-        \item  For every scalar $a \in \F$ and vectors $v, w \in V$, $a \cdot (v + w) = a \cdot v + a \cdot w$.
-        \item  For all scalars $a, b \in \F$ and vector $v\in V$, $(a + b) \cdot v = a \cdot v + b \cdot v$.
+        \item  For all scalars $a, b \in K$ and vector $v \in V$, $a \cdot_V (b \cdot_V v) = (a \cdot_F b) \cdot_V v$.
+        \item  For every scalar $a \in K$ and vectors $v, w \in V$, $a \cdot (v + w) = a \cdot v + a \cdot w$.
+        \item  For all scalars $a, b \in K$ and vector $v\in V$, $(a + b) \cdot v = a \cdot v + b \cdot v$.
     \end{enumerate}
 \end{definition}
 
+\begin{definition}{The directional derivative}{The directional derivative}
+    Let $f : \R^n \to \R^m$, for some $n, m \in \N$.
+    Then we define the directional derivative of $f$ along $v \in \R^n$ as:
+    $$\partial_v f : U \subseteq \R^n \to \R^m := p \mapsto \lim_{h \to 0} \frac{f(p + hv) - f(p)}{h}$$
+\end{definition}
+
+\begin{notation}{}{}
+    \begin{enumerate}[label=(\roman*)]
+        \item Let $f: \R \to \R^n$ then define $f' := \partial f := \partial_1 f$.
+        \item Let $f: \R^n \to \R^m$ and $e_i$ be a basis for $\R^n$ then define $\partial_i f := \partial_{e_i} f$.
+        \item Let $f: \R^n \to \R^m$ and $e_i$ be a basis for $\R^n$ then define $\frac{\partial f}{\partial e_i} := \partial_{e_i} f$.
+    \end{enumerate}
+\end{notation}{}{}
+
+
+\begin{definition}{Topological Space}{}
+    A \emph{topology} $\tp \subseteq \pset{M}$ on a set $M$ forms a \emph{topological space} $(M, \tp)$ if it satisfies the following,
+
+    \begin{enumerate}[label=(\roman*)]
+        \item $\emptyset, M \in \tp$.
+        \item If $S \subseteq \tp$ then $\bigcup S \in \tp$.
+        \item If $S_1, S_2 \in \tp$ then $S_1 \cap S_2 \in \tp$.
+    \end{enumerate}
+\end{definition}
+
+
+\begin{example}{Standerd topology on the Reals}{Standerd topology on the R}
+    Let $\R$ be the set of real numbers, we define the standerd topology $\tp_s$ on $\R$.
+    $$\tp_s = \{U \in \pset{\R} \mid \forall p  \in U : \exists a, b \in U : p \in (a,b) \tand (a,b) \subseteq U\}$$
+\end{example}
+
+\begin{definition}{}{}
+    Let $(M, \tp_M)$ and $(N, \tp_N)$ be topological spaces, define the product topology $\tp_{M \times N}$ for the set $M \times N$,
+    $$\tp_{M \times N}  := \{U \in \pset{\tp_M \times \tp_N} \mid \forall p \in U : \exists A \in \tp_M : \exists B \in \tp_N : p \in A \times B \subseteq U\}$$
+\end{definition}
+
+
+
 \begin{definition}{Norm Spaces}{Norm Spaces}
-    A \emph{Norm Space} $\left(V, +, \cdot, \|\cdot\|\right)$ over a field $\left(\F, +, \cdot\right)$
-    is a vector space $\left(V, +, \cdot\right)$ over the field $\left(\F, +, \cdot\right)$ along with a \emph{norm} $\|\cdot\| : V \rightarrow \R$  satisfying the following,
+    A \emph{Norm Space} $\left(V, +, \cdot, \|\cdot\|\right)$ over a field $\left(K, +, \cdot\right)$
+    is a vector space $\left(V, +, \cdot\right)$ over the field $\left(K, +, \cdot\right)$ along with a \emph{norm} $\|\cdot\| : V \to \R$  satisfying the following,
 
     \begin{enumerate}[label=(\roman*)]
         \item For every vector $v \in V$, $\|v\| \geq 0$.
         \item $\|v\| = 0$ if and only if $v = \vec{0}$.
-        \item For every scalar $\lambda \in \F$ and vector $v \in V$, $\|\lambda v\| = |\lambda|\|v\|$.
+        \item For every scalar $\lambda \in K$ and vector $v \in V$, $\|\lambda v\| = |\lambda|\|v\|$.
     \end{enumerate}
 \end{definition}
 
 \begin{definition}{Sequence}{Sequence}
-    A \emph{Sequence} $a_n$ is map $a_n : \N \rightarrow X$ for some target $X$.
-    A \emph{Finite Sequence} $a_n$ with a length $L \in \N$ is map $a_n : \{m \in \N \mid m \leq L\} \rightarrow X$ for some target $X$.
+    A \emph{Sequence} $a_n$ is map $a_n : \N \to X$ for some target $X$.
+    A \emph{Finite Sequence} $a_n$ with a length $L \in \N$ is map $a_n : \{m \in \N \mid m \leq L\} \to X$ for some target $X$.
 \end{definition}
 
 \begin{definition}{Cauchy Sequence}{Cauchy Sequence}
     Let $\left(V, +, \cdot, \|\cdot\|\right)$ be normed space.
-    A Sequence $a_n: \N \rightarrow V$ is \emph{Cauchy} if:
+    A Sequence $a_n: \N \to V$ is \emph{Cauchy} if:
     $$\forall \varepsilon > 0 : \exists N : \forall m, n \geq N \implies \|x_n - x_m\| < \varepsilon.$$
     Meaning that elements in the sequence become closer and closer.
 \end{definition}
