@@ -35,19 +35,35 @@
 
 \begin{definition}{Convergence Sequence}{Convergence Sequence}
     Let $(M, \tp)$ be a topological space, a sequence $a: \N \to M$ converges to a point $p \in M$ if:
-    $$\forall U \in \tp(p \in U \implies \exists N : \forall n \geq N : a_n \in U)$$
-
+    $$\forall U \in \tp(p \in U \implies \exists N \in \N : \forall n \geq N : a_n \in U)$$
+    This is usually denoted $a_n \to p$.
 \end{definition}
 
-\begin{definition}{Continuous Map}{Continuous Map}
-    Let $(M, \tp_M)$ and $(N, \tp_N)$ be topological spaces, then a map $f: M \to N$ is continuous at $p$ if:
-    $$\forall U \in \tp_N \left(f(p) \in U \implies f^{\text{pre}}(U) \in \tp_M\right)$$
-\end{definition}
 
 \begin{definition}{Hausdorff Space}{Hausdorff Space}
     A topological space $(M, \tp)$ is Hausdorff if:
     $$\forall p, q \in M (p \neq q \implies \exists U, V \in \tp : p \in U, q \in V \tand U \cap V = \emptyset)$$
+\end{definition}
 
+\begin{proposition}{Unique Convergence in Hausdorff Spaces}{Unique Convergence in Hausdorff Spaces}
+    Let $(M, \tp)$ be a Hausdorff space and assume a sequence $a: \N \to M$ converges to points $p$ and $q$ in $M$.
+    Then $p$ and $q$ must be equal.
+    $$a_n \to p \tand a_n \to q \implies p = q$$
+\end{proposition}
+
+\begin{proof}
+    Let $(M, \tp)$ be a Hausdorff space and assume $a_n \to p \tand a_n \to q$.
+    Assume for the sake of contradiction that $p \neq q$.
+    By the Hausdorff property there exists open neighbourhoods $U, V \in \tp$ such that $p \in U, q \in V \tand U \cap V = \emptyset$.
+    Since $a_n \to p$ there exists an $N_1 \in \N$ such that, for all $n \geq N_1, a_n \in U$.
+    Similarly, since $a_n \to q$ there exists an $N_2 \in \N$ such that, for all $n \geq N_2, a_n \in V$.
+    Combining these statements we can conclude that for all $n \geq N_1 \tand n \geq N_2, a_n \in U \cap V = \emptyset$.
+    However this is a contradiction, since $a_n$ can not be an element of the emptyset; thus we can conclude that $p = q$.
+\end{proof}
+
+\begin{definition}{Continuous Map}{Continuous Map}
+    Let $(M, \tp_M)$ and $(N, \tp_N)$ be topological spaces, then a map $f: M \to N$ is continuous at $p$ if:
+    $$\forall U \in \tp_N \left(f(p) \in U \implies f^{\text{pre}}(U) \in \tp_M\right)$$
 \end{definition}
 
 \begin{definition}{Fields}{Field}
