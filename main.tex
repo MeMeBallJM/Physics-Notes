@@ -33,6 +33,12 @@
     $$p \in U \in \tp$$
 \end{terminology}
 
+\begin{definition}{Convergence Sequence}{Convergence Sequence}
+    Let $(M, \tp)$ be a topological space, a sequence $a: \N \to M$ converges to a point $p \in M$ if:
+    $$\forall U \in \tp(p \in U \implies \exists N : \forall n \geq N : a_n \in U)$$
+
+\end{definition}
+
 \begin{definition}{Continuous Map}{Continuous Map}
     Let $(M, \tp_M)$ and $(N, \tp_N)$ be topological spaces, then a map $f: M \to N$ is continuous at $p$ if:
     $$\forall U \in \tp_N \left(f(p) \in U \implies f^{\text{pre}}(U) \in \tp_M\right)$$
