@@ -33,9 +33,15 @@
     $$p \in U \in \tp$$
 \end{terminology}
 
-\begin{definition}{Continuous map}{Continuous map}
+\begin{definition}{Continuous Map}{Continuous Map}
     Let $(M, \tp_M)$ and $(N, \tp_N)$ be topological spaces, then a map $f: M \to N$ is continuous at $p$ if:
     $$\forall U \in \tp_N \left(f(p) \in U \implies f^{\text{pre}}(U) \in \tp_M\right)$$
+\end{definition}
+
+\begin{definition}{Hausdorff Space}{Hausdorff Space}
+    A topological space $(M, \tp)$ is Hausdorff if:
+    $$\forall p, q \in M (p \neq q \implies \exists U, V \in \tp : p \in U, q \in V \tand U \cap V = \emptyset)$$
+
 \end{definition}
 
 \begin{definition}{Fields}{Field}
