@@ -14,7 +14,7 @@
 
 \begin{document}
 
-\begin{definition}{Topological Space}{}
+\begin{definition}{Topological Space}{Topological Space}
     A \emph{topology} $\tp \subseteq \pset{M}$ on a set $M$ forms a \emph{topological space} $(M, \tp)$ if it satisfies the following,
 
     \begin{enumerate}[label=(\roman*)]
@@ -24,6 +24,7 @@
     \end{enumerate}
 \end{definition}
 
+
 \begin{terminology}{Open Set}{Open Set}
     Let $(M, \tp)$ be topological space, then a subset $U \subseteq M$ is called open if $U \in \tp$.
 \end{terminology}
@@ -32,6 +33,34 @@
     Let $(M, \tp)$ be topological space, then a subset $U \subseteq M$ is an open neighbourhood around $p \in M$ if it contains $p$ and is open.
     $$p \in U \in \tp$$
 \end{terminology}
+
+\begin{definition}{Connected Space}{Connected Space}
+    Let $(M, \tp)$ be a topological space. The space is connected if:
+    $$\nexists U, V \in \tp:  U \cap V = \emptyset, U \cup V = M \tand U, V \neq M, \emptyset$$
+\end{definition}
+
+\begin{proposition}{}{}
+    Let $(M, \tp)$ be topological space and $U, V \in \tp$ such that:
+    $$U \cup V = M \qquad U \cap V = \emptyset \qquad V, U \neq M, \emptyset$$
+    Then, $V = U^c$.
+\end{proposition}
+
+\begin{proof}
+    Let $(M, \tp)$ be a topological space.
+    Assume that $U, V$ are open subsets satisfying the following conditions:
+    $$U \cup V = M \qquad U \cap V = \emptyset \qquad V, U \neq M, \emptyset$$
+    Assume for the sake of contradiction that $U^c \neq V$.
+    From this we can conclude that either,
+    there exists an element $x \in U^c$ such that $x \notin V$,
+    or there exists an element $y \in V$ such that $x \notin U^c$.
+    First consider the case where $x \in U^c$ and $x \notin V$.
+    We can further conclude that $x \notin U$, and so $x \notin U \cup V$.
+    Since there exists an element in $M$ namely $x$ that isn't in $U \cup V$ we can conclude that $M \neq U \cup V$, a contradiction.
+    Now, consider the second case where $y \in V$ and $y \notin U^c$.
+    Since $y \notin U^c$, then $y \in U$.
+    Further we conclude that $y \in U \cap V$, showing that $U \cap V \neq \emptyset$, a contradiction.
+    Since either option leads to a contradiction we can conclude that our initial assumption is wrong, and that $U^c = V$.
+\end{proof}
 
 \begin{definition}{Convergence Sequence}{Convergence Sequence}
     Let $(M, \tp)$ be a topological space, a sequence $a: \N \to M$ converges to a point $p \in M$ if:
